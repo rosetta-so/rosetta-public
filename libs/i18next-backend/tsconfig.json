@@ -1,0 +1,8 @@
+{
+  "extends": "@rosetta/tsconfig",
+  "include": ["src/**/*"],
+  "exclude": ["src/**/*.test.ts"],
+  "compilerOptions": {
+    "outDir": "./dist"
+  }
+}

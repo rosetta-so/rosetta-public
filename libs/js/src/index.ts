@@ -28,4 +28,13 @@ export class RosettaClient {
   async getLocale(locale: string = "en") {
     return this.request<Record<string, string>>(`/${this.projectId}/${locale}`);
   }
+
+  async publishKeys(keys: string[], locale: string = "en") {
+    const keyValuePairs = keys.map((key) => [key, key]);
+    const objectFromPairs = Object.fromEntries(keyValuePairs);
+    return this.request<Record<string, string>>(`/${this.projectId}/en`, {
+      method: "POST",
+      body: JSON.stringify(objectFromPairs),
+    });
+  }
 }
